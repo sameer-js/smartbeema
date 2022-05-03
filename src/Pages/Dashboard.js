@@ -14,7 +14,6 @@ const Dashboard = () => {
               Get a brief overview of your crops and how the weather conditions
               are affecting them.
             </p>
-            {/* <img src="" alt="" className="logo" /> */}
           </div>
         </Col>
       </Row>
@@ -23,7 +22,7 @@ const Dashboard = () => {
           <WeatherInfo />
         </Col>
       </Row>
-
+      <br></br>
       <Row style={{ marginTop: "20px" }}>
         <Col lg={8}>
           <CropInfo />

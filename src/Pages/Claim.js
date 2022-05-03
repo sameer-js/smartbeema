@@ -6,13 +6,108 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const Claim = () => {
   const [clicked, setClicked] = useState(false);
+  const [clickedReg, setClickedReg] = useState(false);
 
   const onClick = () => {
     setClicked(!clicked);
   };
 
+  const onClickReg = () => {
+    setClickedReg(!clickedReg);
+  };
+
   return (
     <Container fluid={true} className="dashboard">
+      <Row>
+        <Col lg={12}>
+          <div className="info-container">
+            <h1 className="page-title">Register</h1>
+            <p className="info">
+              Please register first if you have not registered yet.
+            </p>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Card
+            style={{
+              height: "200px",
+              position: " relative",
+              border: `2px solid ${!clickedReg ? "green" : "#FFCA2C"}`,
+              overflow: "hidden",
+            }}
+            className="claim-info weather-info-container"
+          >
+            <Card.Header
+              style={{
+                paddingTop: "30px",
+                paddingLeft: "36px",
+                paddingRight: "30px",
+              }}
+            >
+              <motion.h5
+                initial={{ y: 100, z: 100, opacity: 0 }}
+                animate={{ y: 0, z: 0, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                exit={{ y: -100, z: -100, opacity: 0 }}
+              >
+                User Registration
+              </motion.h5>
+              <AnimatePresence exitBeforeEnter>
+                {!clickedReg ? (
+                  <motion.p
+                    key="not-registered"
+                    initial={{ y: 100, z: 100, opacity: 0 }}
+                    animate={{ y: 0, z: 0, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    exit={{ y: -100, z: -100, opacity: 0 }}
+                    style={{ fontSize: "16px", paddingTop: "10px" }}
+                    className="location-info"
+                  >
+                    Hit register if you want to initiate a request for your user
+                    registration. This is a one time process and you need to
+                    complete this step before proceeding further. After proper
+                    review, you will be notified in your registered contact
+                    number on any updates to your registration. You can also
+                    come back here to check your issue status.
+                  </motion.p>
+                ) : (
+                  <motion.p
+                    key="claimed"
+                    initial={{ y: 100, z: 100, opacity: 0 }}
+                    animate={{ y: 0, z: 0, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    exit={{ y: -100, z: -100, opacity: 0 }}
+                    style={{ fontSize: "16px", paddingTop: "10px" }}
+                    className="location-info"
+                  >
+                    Your issue is being processed, hit cancel if you want to
+                    cancel the request.
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </Card.Header>
+            <Button
+              style={{
+                // background: "#5D913C",
+                marginLeft: "auto",
+                marginRight: "20px",
+                marginBottom: "10px",
+                position: "absolute",
+                bottom: "20px",
+                right: "20px",
+                width: "200px",
+              }}
+              variant={!clickedReg ? "success" : "warning"}
+              onClick={onClickReg}
+            >
+              {!clickedReg ? "Register" : "Cancel"}
+            </Button>
+          </Card>
+        </Col>
+      </Row>
+      <br></br>
       <Row>
         <Col lg={12}>
           <div className="info-container">
@@ -62,11 +157,11 @@ const Claim = () => {
                     style={{ fontSize: "16px", paddingTop: "10px" }}
                     className="location-info"
                   >
-                    Hit claim if you want to initiate a request the insurance
-                    amount. After proper review of your claim, you will be
-                    notified in your registered contact number on any updates to
-                    your claim. You can also come back here to check your issue
-                    status.
+                    Hit claim if you want to initiate a request for the
+                    insurance amount. After proper review of your claim, you
+                    will be notified in your registered contact number on any
+                    updates to your claim. You can also come back here to check
+                    your issue status.
                   </motion.p>
                 ) : (
                   <motion.p

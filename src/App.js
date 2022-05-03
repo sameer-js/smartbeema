@@ -4,6 +4,7 @@ import Claim from "./Pages/Claim";
 import Settings from "./Pages/Settings";
 import History from "./Pages/History";
 import Profile from "./Pages/Profile";
+import Whitelist from "./Pages/Whitelist";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -16,7 +17,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { useState } from "react";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <Router>
@@ -37,6 +38,7 @@ function App() {
               <Route path="/settings" element={<Settings />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/whitelist" element={<Whitelist />} />
             </Routes>
           </Col>
         </Row>

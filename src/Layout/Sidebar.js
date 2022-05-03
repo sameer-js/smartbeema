@@ -39,7 +39,7 @@ const Sidebar = () => {
       title: "Settings",
       icon: settings,
       key: "/settings",
-      disabled: true,
+      disabled: false,
     },
   ];
 
