@@ -7,7 +7,7 @@ const Whitelist = () => {
         <Form.Label>
           <h4>Wallet Address</h4>
         </Form.Label>
-        <Form.Control type="email" placeholder="Enter address" />
+        <Form.Control type="text" placeholder="Enter address" />
         <Form.Text className="text-muted">
           Enter the wallet address that you want to whitelist.
         </Form.Text>
