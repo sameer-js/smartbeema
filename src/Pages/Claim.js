@@ -1,19 +1,37 @@
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import WeatherInfo from "../Components/Dashboard/WeatherInfo";
 import CropInfo from "../Components/Dashboard/CropInfo";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Web3 from "web3";
+import Web3Context from "../hooks/Web3Context";
 
 const Claim = () => {
   const [clicked, setClicked] = useState(false);
   const [clickedReg, setClickedReg] = useState(false);
+  const context = useContext(Web3Context);
 
-  const onClick = () => {
+  const onClick = async () => {
     setClicked(!clicked);
+    // do the registration contract call
+    const txn = await context.insuranceContract.methods.claimInsurance().send({
+      from: context.account,
+    });
+
+    console.log(txn);
+    console.log("succesfully done");
   };
 
-  const onClickReg = () => {
+  const onClickReg = async () => {
     setClickedReg(!clickedReg);
+    // do the registration contract call
+    const txn = await context.insuranceContract.methods.register().send({
+      from: context.account,
+      value: Web3.utils.toWei("0.001"),
+    });
+
+    console.log(txn);
+    console.log("succesfully done");
   };
 
   return (
@@ -34,7 +52,7 @@ const Claim = () => {
             style={{
               height: "200px",
               position: " relative",
-              border: `2px solid ${!clickedReg ? "green" : "#FFCA2C"}`,
+              border: `2px solid ${!clickedReg ? "green" : "#333333"}`,
               overflow: "hidden",
             }}
             className="claim-info weather-info-container"
@@ -82,13 +100,14 @@ const Claim = () => {
                     style={{ fontSize: "16px", paddingTop: "10px" }}
                     className="location-info"
                   >
-                    Your issue is being processed, hit cancel if you want to
-                    cancel the request.
+                    Your issue has been processed, Registration Successful. Hit
+                    Claim in the section below to claim your pending amount.
                   </motion.p>
                 )}
               </AnimatePresence>
             </Card.Header>
             <Button
+              disabled={clickedReg}
               style={{
                 // background: "#5D913C",
                 marginLeft: "auto",
@@ -99,10 +118,10 @@ const Claim = () => {
                 right: "20px",
                 width: "200px",
               }}
-              variant={!clickedReg ? "success" : "warning"}
+              variant={!clickedReg ? "success" : "secondary"}
               onClick={onClickReg}
             >
-              {!clickedReg ? "Register" : "Cancel"}
+              {!clickedReg ? "Register" : "✔ Done"}
             </Button>
           </Card>
         </Col>
@@ -126,7 +145,7 @@ const Claim = () => {
             style={{
               height: "200px",
               position: " relative",
-              border: `2px solid ${!clicked ? "green" : "#FFCA2C"}`,
+              border: `2px solid ${!clicked ? "green" : "#333333"}`,
               overflow: "hidden",
             }}
             className="claim-info weather-info-container"
@@ -173,13 +192,13 @@ const Claim = () => {
                     style={{ fontSize: "16px", paddingTop: "10px" }}
                     className="location-info"
                   >
-                    Your issue is being processed, hit cancel if you want to
-                    cancel the request.
+                    The pending amount has been claimed successfully.
                   </motion.p>
                 )}
               </AnimatePresence>
             </Card.Header>
             <Button
+              disabled={clicked}
               style={{
                 // background: "#5D913C",
                 marginLeft: "auto",
@@ -190,10 +209,10 @@ const Claim = () => {
                 right: "20px",
                 width: "200px",
               }}
-              variant={!clicked ? "success" : "warning"}
+              variant={!clicked ? "success" : "secondary"}
               onClick={onClick}
             >
-              {!clicked ? "Claim" : "Cancel"}
+              {!clicked ? "Claim" : "✔ Claimed"}
             </Button>
           </Card>
         </Col>
