@@ -39,7 +39,7 @@ const Register = () => {
               </motion.div>
             )}
           </AnimatePresence>{" "}
-          of 3
+          of 2
         </div>
         <WithForm step={step} setStep={setStep} />
       </Col>

@@ -1,5 +1,6 @@
 import { Form, Button, Col, Container } from "react-bootstrap";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const UserDetails = ({ prevStep, nextStep, inputValues, handleChange }) => {
   const back = (e) => {
@@ -7,9 +8,11 @@ const UserDetails = ({ prevStep, nextStep, inputValues, handleChange }) => {
     prevStep();
   };
 
+  const navigate = useNavigate();
+
   const saveAndContinue = (e) => {
     e.preventDefault();
-    nextStep();
+    navigate("/login");
   };
 
   return (

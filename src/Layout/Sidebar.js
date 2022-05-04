@@ -1,6 +1,6 @@
 import NavItem from "./NavItem";
 import { Nav, Container, Row, Col } from "react-bootstrap";
-import { useLocation } from "react-router";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -72,9 +72,13 @@ const Sidebar = () => {
       <Row lg={12}>
         <Col>
           <span>{logout}</span>
-          <span style={{ color: "#FF4842", fontWeight: 500, padding: "10px" }}>
-            Logout
-          </span>
+          <Link to="/register" style={{textDecoration: "none"}}>
+            <span
+              style={{ color: "#FF4842", fontWeight: 500, padding: "10px" }}
+            >
+              Logout
+            </span>
+          </Link>
         </Col>
       </Row>
     </Container>
