@@ -1,7 +1,7 @@
 import Sidebar from "./Layout/Sidebar";
 import Dashboard from "./Pages/Dashboard";
 import Claim from "./Pages/Claim";
-import Settings from "./Pages/Settings";
+import Admin from "./Pages/Settings";
 import History from "./Pages/History";
 import Profile from "./Pages/Profile";
 import Whitelist from "./Pages/Whitelist";
@@ -35,7 +35,7 @@ function App() {
               <Route path="/claim" element={<Claim />} />
               <Route path="/history" element={<History />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/settings" element={<Settings />} />
+              <Route path="/settings" element={<Admin />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/whitelist" element={<Whitelist />} />

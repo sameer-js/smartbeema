@@ -36,7 +36,7 @@ const Sidebar = () => {
     },
     {
       id: 5,
-      title: "Settings",
+      title: "Admin",
       icon: settings,
       key: "/settings",
       disabled: false,
