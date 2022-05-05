@@ -150,6 +150,18 @@
   stroke-width: 1;
 }
 
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
 .control-button {
   font-size: 20px !important;
   font-weight: 500 !important;

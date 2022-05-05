@@ -28,7 +28,10 @@ const Dashboard = () => {
           <CropInfo />
         </Col>
         <Col lg={4}>
-          <div className="img-container" style={{ overflow: "hidden" }}>
+          <div
+            className="img-container"
+            style={{ overflow: "hidden", borderRadius: "20px" }}
+          >
             <img src={Apple} alt="apple" />
           </div>
         </Col>

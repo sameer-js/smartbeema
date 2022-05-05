@@ -32,7 +32,7 @@ function App() {
   const [tradeContract, setTradeContract] = useState();
   const [isConfigured, setIsConfigured] = useState(false);
 
-  const contractAddress = "0xD8D147612CE3eE27a27e5a16096f3082b00901aF";
+  const contractAddress = "0x75C82A3BD5e212B6C8Bb8Aa66615F176CA980c74";
   // const contractAddress = "0xcBc5fCE3cdB645D5768EbB10161215F38d9eDE1C";
 
   useEffect(() => {

@@ -24,15 +24,15 @@ const Sidebar = () => {
       id: 3,
       title: "History",
       icon: history,
-      key: "/history",
-      disabled: true,
+      key: "https://kovan.etherscan.io/address/0xC2efb6E027f0539620553825DdedC939deFA84bb",
+      disabled: false,
     },
     {
       id: 4,
       title: "Profile",
       icon: profile,
-      key: "/profile",
-      disabled: true,
+      key: "https://ethereum.org/en/wallets/",
+      disabled: false,
     },
     {
       id: 5,
@@ -72,7 +72,7 @@ const Sidebar = () => {
       <Row lg={12}>
         <Col>
           <span>{logout}</span>
-          <Link to="/register" style={{textDecoration: "none"}}>
+          <Link to="/register" style={{ textDecoration: "none" }}>
             <span
               style={{ color: "#FF4842", fontWeight: 500, padding: "10px" }}
             >

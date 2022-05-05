@@ -1,6 +1,7 @@
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import WeatherInfo from "../Components/Dashboard/WeatherInfo";
 import CropInfo from "../Components/Dashboard/CropInfo";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Web3 from "web3";
@@ -100,7 +101,8 @@ const Claim = () => {
                     style={{ fontSize: "16px", paddingTop: "10px" }}
                     className="location-info"
                   >
-                    Your issue has been processed, Registration Successful. Hit
+                    Your issue has been processed, proceed further in the
+                    <b> MetaMask</b> popup from your browser extension. Hit
                     Claim in the section below to claim your pending amount.
                   </motion.p>
                 )}
@@ -133,7 +135,7 @@ const Claim = () => {
             <h1 className="page-title">Claim</h1>
             <p className="info">
               Here, you can make your claims and also see all of your past
-              claims and their status.
+              claims and their status from the Kovan redirection link.
             </p>
             {/* <img src="" alt="" className="logo" /> */}
           </div>
@@ -178,9 +180,8 @@ const Claim = () => {
                   >
                     Hit claim if you want to initiate a request for the
                     insurance amount. After proper review of your claim, you
-                    will be notified in your registered contact number on any
-                    updates to your claim. You can also come back here to check
-                    your issue status.
+                    will be notified from you MetaMask browser extension on any
+                    updates to your claim.
                   </motion.p>
                 ) : (
                   <motion.p
@@ -192,7 +193,18 @@ const Claim = () => {
                     style={{ fontSize: "16px", paddingTop: "10px" }}
                     className="location-info"
                   >
-                    The pending amount has been claimed successfully.
+                    The pending amount has been claimed successfully. Please
+                    check it in the
+                    <b> MetaMask</b> popup from your browser extension.
+                    <br></br>
+                    Check your Transaction Statement from the :{" "}
+                    <a
+                      href="https://kovan.etherscan.io/address/0xC2efb6E027f0539620553825DdedC939deFA84bb"
+                      target="_blank"
+                    >
+                      Etherscan - Kovan Network site
+                    </a>
+                    .
                   </motion.p>
                 )}
               </AnimatePresence>
