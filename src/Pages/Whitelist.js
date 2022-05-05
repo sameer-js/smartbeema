@@ -23,17 +23,19 @@ const Whitelist = () => {
           <h3>{context.account}</h3>
           <h4>{address}</h4>
         </Form.Label>
-        <Form.Control type="text" placeholder="Enter address" />
+
         <input
           className="text-muted"
+          placeholder="Enter address"
+          style={{ width: "60%" }}
           onChange={(e) => {
             setAddress(e.target.value);
             console.log("called");
           }}
         />
 
-        <Form.Control type="text" placeholder="Enter address" />
         <Form.Text className="text-muted">
+          <br></br>
           Enter the wallet address that you want to whitelist.
         </Form.Text>
       </Form.Group>
